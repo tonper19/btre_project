@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# django generated static folder with python manage.py collectstatic
+/static
+/media
