@@ -29,7 +29,7 @@
                 <div class="col-md-4 mb-3">
                   <label class="sr-only">State</label>
                   <select name="state" class="form-control">
-                    <option selected="true" disabled="disabled">State (All)</option>
+                    <option selected="true">State (All)</option>
                     {% for k,v in state_choices.items %}
                       <option value="{{ k }}">{{ v }}</option>
                     {% endfor %}
@@ -42,7 +42,7 @@
                 <div class="col-md-6 mb-3">
                   <label class="sr-only">Bedrooms</label>
                   <select name="bedrooms" class="form-control">
-                    <option selected="true" disabled="disabled">Bedrooms (All)</option>
+                    <option selected="true">Bedrooms (Any)</option>
                     {% for k, v in bedroom_choices.items %}
                       <option value="{{ k }} ">{{ v }}</option>
                     {% endfor %}
@@ -50,7 +50,7 @@
                 </div>
                 <div class="col-md-6 mb-3">
                   <select name="price" class="form-control" id="type">
-                    <option selected="true" disabled="disabled">Max Price (Any)</option>
+                    <option selected="true">Max Price (Any)</option>
                     {% for k,v in price_choices.items %}
                       <option value="{{ k }}">{{ v }}</option>
                     {% endfor %}
