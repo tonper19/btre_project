@@ -30,7 +30,7 @@ def register(request):
                     # in case you need to login after register immediately:
                     # auth.login(request, user)
                     # messages.success(request, "You are now logged in")
-                    # return redirect("index")
+                    # return redirect("dashboard")
 
                     # Brad Traversy prefers the user logs in her/himself:
                     user.save()
@@ -46,11 +46,18 @@ def register(request):
 
 def login(request):
     if request.method == "POST":
-        # Login user logic goes here
-        print("*** login submit coming soon!")
-        return redirect("login")
-
-    return render(request, "accounts/login.html")
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            messages.success(request, "You are now logged in")
+            return redirect("dashboard")
+        else:
+            messages.error(request, "Invalid credentials")
+            return redirect("login")
+    else:
+        return render(request, "accounts/login.html")
 
 def logout(request):
     return redirect("index")
