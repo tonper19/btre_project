@@ -60,6 +60,11 @@ def login(request):
         return render(request, "accounts/login.html")
 
 def logout(request):
+    # 14/03/2020 this function should be called from templates\partials\_navbar.html 
+    if request.method == "POST":
+        auth.logout(request)
+        messages.success(request, "Your are now logged out")
+
     return redirect("index")
 
 def dashboard(request):
