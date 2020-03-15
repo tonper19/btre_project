@@ -28,3 +28,12 @@ class Listing(models.Model):
 
     def __str__(self):
         return self.title
+
+# Remember: 
+# 1. Add listings into INSTALLED_APPS list on the main app (btre) settings.py
+# 2. create the migration file (python mod with the table DDL): 
+#    python manage.py makemigrations listings
+# 3. the previous action will create a migration file:
+#    listings/migrations/0001_initial.py
+# 4. lastly, migrate the created migration by:
+#    python manage.py migrate
