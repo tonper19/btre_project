@@ -185,9 +185,14 @@
             </div>
             <div class="form-group">
               <label for="name" class="col-form-label">Name:</label>
+              <!-- 15/03/2020 Bonus: added an extra check for logged user without a name/email-->
               <input type="text" name="name" class="form-control" 
                 {% if user.is_authenticated %}
-                  value="{{ user.first_name }} {{ user.last_name }}"
+                  {% if not user.first_name and not user.last_name %}
+                    placeholder="Please enter your name"
+                  {% else %}
+                    value="{{ user.first_name }} {{ user.last_name }}"
+                  {% endif %}
                 {% endif %}
               required>
             </div>
@@ -195,7 +200,11 @@
               <label for="email" class="col-form-label">Email:</label>
               <input type="email" name="email" class="form-control" 
                 {% if user.is_authenticated %}
-                  value="{{ user.email }}"
+                  {% if not user.email %}
+                    placeholder="Please enter your email address"
+                  {% else %}
+                    value="{{ user.email }}"
+                  {% endif %}
                 {% endif %}
               required>
             </div>
