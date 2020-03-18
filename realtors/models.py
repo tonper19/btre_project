@@ -13,3 +13,11 @@ class Realtor(models.Model):
     def __str__(self):
         return self.name
 
+# Remember: 
+# 1. Add realtors into INSTALLED_APPS list on the main app (btre) settings.py
+# 2. create the migration file (python mod with the table DDL): 
+#    python manage.py makemigrations realtors
+# 3. the previous action will create a migration file:
+#    realtors/migrations/0001_initial.py
+# 4. lastly, migrate the created migration by:
+#    python manage.py migrate
