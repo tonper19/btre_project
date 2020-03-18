@@ -144,11 +144,7 @@ MESSAGE_TAGS = {
 }
 
 # Email configuration
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = 587
-EMAIL_HOST_USER = "technology.artisans.django@gmail.com"
-EMAIL_HOST_PASSWORD = "temporary!"
-EMAIL_USE_TLS = True
+# No email from development, email credentials to be stored in local_settings
 
 # Import the local_settings if running on Production
 try:
