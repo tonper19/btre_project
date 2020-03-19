@@ -27,18 +27,20 @@ def contact(request):
                         ,email=email, phone=phone, message=message, user_id=user_id)
 
         contact.save()
-        send_mail(
-            subject=f"Property Listing Inquiry: {listing}",
-            message=(f"There has been an inquiry for {listing}.\n" \
-                     f"Name: {name}\n"
-                     f"Email address: {email}\n"
-                     f"Telephone number: {phone}\n"
-                     f"Message: {message}\n\n"
-                     f"Sign into the Admin Panel for more info."),
-            from_email="technology.artisans.django@gmail.com",
-            recipient_list=[realtor_email, "tonper19@gmail.com"],
-            fail_silently=False,
-        )
+        # 19/03/2020 As per Brad's advice, disable this as it won't work on prod
+        # hopefully he will publish a new tutorial to perform this task.
+        # send_mail(
+        #     subject=f"Property Listing Inquiry: {listing}",
+        #     message=(f"There has been an inquiry for {listing}.\n" \
+        #              f"Name: {name}\n"
+        #              f"Email address: {email}\n"
+        #              f"Telephone number: {phone}\n"
+        #              f"Message: {message}\n\n"
+        #              f"Sign into the Admin Panel for more info."),
+        #     from_email="technology.artisans.django@gmail.com",
+        #     recipient_list=[realtor_email, "tonper19@gmail.com"],
+        #     fail_silently=False,
+        # )
 
         messages.success(request, "Your request has been submitted, a realtor will get back to you soon")
         return redirect(f"/listings/{listing_id}")
